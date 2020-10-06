@@ -1,4 +1,4 @@
-<%- include('partials/header') %> 
+<% layout('layout') -%>
 <h1><%= title %> </h1>
 <ul>
     <% if (author_list.length > 0) { %>
@@ -9,4 +9,3 @@
         <li>There are no authors.</li>
     <% } %>
 </ul>
-<%- include('partials/footer') %> 

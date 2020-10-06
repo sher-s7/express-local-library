@@ -1,4 +1,4 @@
-<%- include('partials/header') %>
+<% layout('layout') -%>
 <h1><%= title %> </h1>
 <ul>
     <% if (bookinstance_list.length > 0) { %>
@@ -22,4 +22,3 @@
         <li>There are no book copies in this library.</li>
     <% } %>
 </ul>
-<%- include('partials/footer') %> 

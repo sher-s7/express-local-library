@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var engine = require('ejs-mate');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -16,6 +17,9 @@ var mongoDB = 'mongodb+srv://sher:sher@cluster0.vlxve.azure.mongodb.net/local_li
 mongoose.connect(mongoDB, { useNewUrlParser: true , useUnifiedTopology: true});
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+// use ejs-locals for all ejs templates:
+app.engine('ejs', engine);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

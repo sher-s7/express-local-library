@@ -1,4 +1,4 @@
-<%- include('partials/header') %>
+<% layout('layout') -%>
 <h1><%= title %> </h1>
 <ul>
     <% book_list.sort(function(a, b) {let textA = a.title.toUpperCase(); let textB = b.title.toUpperCase(); return (textA < textB) ? -1 : (textA > textB) ? 1 : 0;}); %> 
@@ -12,4 +12,3 @@
             <li>There are no books</li>    
         <% } %>
 </ul>
-<%- include('partials/footer') %>
