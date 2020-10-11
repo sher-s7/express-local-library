@@ -1,0 +1,43 @@
+<%- layout('layout') -%>
+<h1><%= title %> </h1>
+<p>
+    <strong>Book: </strong><a href=<%=book.url %>><%= book.title %> </a>
+</p>
+<p>
+    <strong>Author: </strong><a href=<%=book.author.url %>><%= book.author.name %> </a>
+</p>
+<p>
+    <strong>Summary: </strong><%= book.summary %>
+</p>
+
+<% if (book_instances.length) { %>
+<p><strong>Delete the following book instances before attempting to delete this book.</strong></p>
+
+<div style="margin-left:20px;margin-top:20px;">
+    <h4>Book instances</h4>
+
+    <dl>
+        <% book_instances.forEach(instance => { %>
+        <dt>
+            ID: <a href="<%= instance.url %>"><%= instance._id %> </a>
+        </dt>
+        <% }) %>
+    </dl>
+</div>
+<% } else { %>
+    <p>Do you really want to delete this book?</p>
+
+    <form action=""
+          method="POST">
+        <div class="form-group">
+            <input type="hidden"
+                   name="bookid"
+                   id="bookid"
+                   class="form-control"
+                   required
+                   value="<%= book._id %>">
+        </div>
+        <button class="btn btn-primary"
+                type="submit">Delete</button>
+    </form>
+<% } %>
