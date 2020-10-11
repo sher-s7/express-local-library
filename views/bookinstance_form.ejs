@@ -3,6 +3,7 @@
 
 <form action=""
       method="POST">
+    <% if (typeof book_list != 'undefined') { %>
     <div class="form-group">
         <label for="book">Book:</label>
         <select name="book"
@@ -22,6 +23,7 @@
             <% }) %>
         </select>
     </div>
+    <% } %>
     <div class="form-group">
         <label for="imprint">Imprint:</label>
         <input class="form-control"
@@ -39,7 +41,7 @@
                id="due_back"
                required
                type="date"
-               value=<%= typeof bookinstance === 'undefined' ? '' : bookinstance.due_back %>>
+               value=<%= typeof bookinstance === 'undefined' ? '' : bookinstance.due_back_field_formatted %>>
     </div>
     <div class="form-group">
         <label for="status">Status:</label>
